@@ -26,6 +26,7 @@ gem 'dm-constraints'
 gem 'dm-aggregates'
 gem 'dm-types'
 gem 'dm-core'
+gem 'dm-serializer'
 
 # Test requirements
 
@@ -39,3 +40,8 @@ gem 'padrino', '0.11.4'
 # %w(core gen helpers cache mailer admin).each do |g|
 #   gem 'padrino-' + g, '0.11.4'
 # end
+
+group :test do
+  gem 'rspec'
+  gem 'rack-test'
+end
