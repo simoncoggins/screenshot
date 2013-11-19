@@ -1,0 +1,25 @@
+- error = @screenshot.errors.key?(:name) && @screenshot.errors[:name].count > 0
+fieldset class='control-group#{error ? ' has-error' : ''}'
+  = f.label :name, :class => 'control-label'
+  div class='controls'
+    = f.text_field :name, :class => 'form-control input-large input-with-feedback', :autofocus => true
+    span class='help-inline' = error ? f.error_message_on(:name, :class => 'text-error') : pat(:example)
+- error = @screenshot.errors.key?(:status) && @screenshot.errors[:status].count > 0
+fieldset class='control-group#{error ? ' has-error' : ''}'
+  = f.label :status, :class => 'control-label'
+  div class='controls'
+    = f.text_field :status, :class => 'form-control input-large input-with-feedback'
+    span class='help-inline' = error ? f.error_message_on(:status, :class => 'text-error') : pat(:example)
+- error = @screenshot.errors.key?(:casperscript) && @screenshot.errors[:casperscript].count > 0
+fieldset class='control-group#{error ? ' has-error' : ''}'
+  = f.label :casperscript, :class => 'control-label'
+  div class='controls'
+    = f.text_area :casperscript, :class => 'form-control input-large input-with-feedback'
+    span class='help-inline' = error ? f.error_message_on(:casperscript, :class => 'text-error') : pat(:example)
+
+div class="form-actions"
+  = f.submit pat(:save), :class => 'btn btn-primary'
+  |&nbsp;
+  = f.submit pat(:save_and_continue), :class => 'btn btn-info', :name => 'save_and_continue'
+  |&nbsp;
+  = link_to pat(:cancel), url(:screenshots, :index), :class => 'btn btn-default'

@@ -1,0 +1,7 @@
+ul class="nav nav-tabs"
+  li = link_to tag_icon(:list, pat(:list)), url(:screenshots, :index)
+  li class="active" = link_to tag_icon(:plus, pat(:new)), url(:screenshots, :new)
+
+div class="tabs-content"
+  - form_for :screenshot, url(:screenshots, :create), :class => 'form-horizontal' do |f|
+    = partial 'screenshots/form', :locals => { :f => f }
